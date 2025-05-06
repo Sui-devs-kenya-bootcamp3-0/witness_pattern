@@ -9,16 +9,16 @@ module witness_pattern::my_token {
     use sui::coin::{Self, TreasuryCap};
 
     // Creating a witness struct
-    public struct MyToken has drop {}
+    public struct MYTOKEN has drop {}
 
     // A struct to give admin status over the token
     public struct TokenAdmin has key, store {
         id: UID,
-        treasury: TreasuryCap<MyToken>  // Capability to mint new Token coins
+        treasury: TreasuryCap<MYTOKEN>  // Capability to mint new Token coins
     }
 
     // Initialize (create) a new coin/token
-    fun init(witness: MyToken, ctx: &mut TxContext) {
+    fun init(witness: MYTOKEN, ctx: &mut TxContext) {
        // Use Sui's coin creation function to :
        // Register a new token type(MyToken)
        // Set token info like decimal, name, symbol, description
